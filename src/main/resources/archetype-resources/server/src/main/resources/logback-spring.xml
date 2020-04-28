@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+    <!-- 输出logback的本身状态数据 -->
+<!--    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />-->
+    <!-- 日志输出格式 -->
+    <property name="log.pattern"
+              value="%cyan(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%5level) : %msg%n"/>
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${log.pattern}</pattern>
+        </layout>
+    </appender>
+    <!-- 本地环境:info级别-->
+    <springProfile name="local">
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+    <!-- 开发环境:info级别-->
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+    <!-- 生产环境:error级别-->
+    <springProfile name="prod">
+        <root level="ERROR">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+</configuration>
