@@ -12,6 +12,15 @@
 - lombok
 - .....
 
+## deps包 ##
+
+deps是模版的父pom,集中了所有的集成依赖并添加了常用的开箱即用的封装类
+
+- common包：待补充，目前是空包
+- db包：待补充，只依赖了mysql驱动和mybatisPlus
+- web包：包含大多数集成依赖。并添加了统一返回值封装类Res,VO&DTO&Req的基于Pojo的转化封装类。封装异常枚举类。
+
+
 ## 安装&使用 ##
 
 ### IDEA模版生成 ###
@@ -39,3 +48,5 @@
 
 - 启动server包中AppApplication
 - 访问http://localhost:8080/print
+- 使用生成db包resource目录下的sql生成测试库
+- 访问http://localhost:8080/hello&http://localhost:8080/hellos获取数据库单条和分页效果
